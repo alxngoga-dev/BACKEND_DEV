@@ -14,5 +14,5 @@ export const accessToken = (payload) => {
     };
 
     const secretkey = process.env.JWT_SECRET_KEY;
-    return jwt.sign(payload,secretkey,{expiresIn:'id'})
+    return jwt.sign(payload,secretkey,{expiresIn:'1d'})
 }
