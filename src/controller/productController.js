@@ -16,5 +16,4 @@ const Createproduct = async(req,res) =>{
       }
 }
 
-export default Createproduct;
-    
+export default Createproduct;   

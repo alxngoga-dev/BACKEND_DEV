@@ -3,26 +3,26 @@ import bcrypt from "bcrypt";
 import { accessToken } from "../utils/generate_key.js";
 
 
-// ================= REGISTER =================
+
 export const register = async (req, res) => {
   try {
     const { firstname, lastname, email, password, userRole } = req.body;
 
-    // validation
+   
     if (!firstname || !lastname || !email || !password ) {
       return res.status(400).json({ message: "All fields are required" });
     }
 
-    // check existing user
+    
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(400).json({ message: "User already exists" });
     }
 
-    // hash password
+    
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // create user
+    
     const newUser = new User({
       firstname,
       lastname,
@@ -57,26 +57,25 @@ export const register = async (req, res) => {
 };
 
 
-// ================= LOGIN =================
 export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    // find user
+   
     const user = await User.findOne({ email });
 
     if (!user) {
       return res.status(400).json({ message: "Invalid email or password" });
     }
 
-    // compare password
+    
     const isMatch = await bcrypt.compare(password, user.password);
 
     if (!isMatch) {
       return res.status(400).json({ message: "Invalid email or password" });
     }
 
-    // generate token
+    
     const token = accessToken(user);
 
     const loggedInUser = {

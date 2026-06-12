@@ -4,6 +4,7 @@ import dotenv from "dotenv"
 import mainRouter from "./routes/indexRouter.js";
 
 
+
 const app = express();
 dotenv.config();
 
@@ -24,5 +25,5 @@ mongoose.connect(MONGOURL).then(() =>{
      });
      
 })
-.catch((error) =>console.log(err))
+.catch((error) =>console.log(error))
 
