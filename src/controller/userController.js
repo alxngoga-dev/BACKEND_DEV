@@ -33,7 +33,7 @@ export const register = async (req, res) => {
 
     await newUser.save();
 
-    // create token
+    
     const token = accessToken(newUser);
 
     return res.status(201).json({
