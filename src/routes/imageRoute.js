@@ -4,13 +4,10 @@ import cloudinary from "../config/cloudinary.js";
 
 const router = express.Router();
 
-const upload = multer({
-  dest: "uploads/",
-});
 
-router.post(
-  "/upload",
-  upload.single("image"),
+const upload = multer({dest: "uploads/",});
+
+router.post("/upload",upload.single("image"),
   async (req, res) => {
     try {
       const result = await cloudinary.uploader.upload(
@@ -30,8 +27,8 @@ router.post(
   }
 );
 
-router.delete(
-  "/delete/:public_id",
+router.delete("/delete/:public_id",
+
   async (req, res) => {
     try {
       const result = await cloudinary.uploader.destroy(

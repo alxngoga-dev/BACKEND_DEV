@@ -1,6 +1,8 @@
 import User from "../models/userModel.js";
 import bcrypt from "bcrypt";
 import { accessToken } from "../utils/generate_key.js";
+import crypto from "crypto";
+import nodemailer from "nodemailer";
 
 
 
@@ -111,6 +113,8 @@ export const logout = async(req,res) =>{
           return res.status(500).json({success:true,message:error.message})
      }
 }
+
+
 
 
 
