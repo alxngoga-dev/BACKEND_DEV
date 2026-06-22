@@ -14,8 +14,8 @@ mainRouter.use("/product",router)
 mainRouter.use("/contact",contactRouter)
 mainRouter.use("/userrouter",userRouter)
 mainRouter.use("/images", imageRouter)
-mainRouter.use("/order",orderRouter)
+mainRouter.use("/orders",orderRouter)
 
 
- 
+
 export default mainRouter;

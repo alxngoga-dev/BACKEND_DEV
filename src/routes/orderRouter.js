@@ -4,6 +4,13 @@ import { createOrder,getAllorder,getOrderByid,updateOrder,deleteorder} from "../
 
 const orderRouter = Router();
 
+orderRouter.get("/test", (req, res) => {
+    res.json({
+        success: true,
+        message: "Order router works"
+    });
+});
+
 
 orderRouter.post("/create-order",createOrder)
 orderRouter.get("/get-allOrders",getAllorder)

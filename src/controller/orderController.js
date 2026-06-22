@@ -3,6 +3,7 @@ import Order from "../models/orderModel.js";
 
 
 export const createOrder = async (req, res) => {
+    
     try {
         const { order, customer, product, status, total, orderDate } = req.body
 
@@ -16,7 +17,7 @@ export const createOrder = async (req, res) => {
         })
 
         return res.status(201).json({
-            success: true, message: "order created successfully !!!", order
+            success: true, message: "order created successfully !!!",newOrder
         })
     } catch (error) {
         return res.status(500).json({
