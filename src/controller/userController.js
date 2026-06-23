@@ -115,10 +115,17 @@ export const logout = async(req,res) =>{
 }
 
 
+export const getAllUsers = async(req,res) =>{
+  try {
+       const users = await User.find().select("-password");
 
-
-
-
-
-
-
+       res.status(200).json({
+        success:true,
+        totalUsers:users.length,
+        users
+       })
+  } catch (error) {
+     success:false
+     res.status(500).json({message:"error while fetching user",error:error.message})
+  }
+}
